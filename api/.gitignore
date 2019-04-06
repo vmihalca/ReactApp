@@ -1,5 +1,5 @@
 # Ignoring node_modules
 /node_modules
 
-# ignore configurations
-api/lib/config/settings.js
+
+lib/config/settings.js
