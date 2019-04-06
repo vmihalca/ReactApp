@@ -2,4 +2,5 @@
 /node_modules
 
 
-lib/config/settings.js
+
+lib/config
