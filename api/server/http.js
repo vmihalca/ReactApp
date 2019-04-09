@@ -1,6 +1,6 @@
 const express = require('express');
 
-exports = module.exports = (settings) => {
+exports = module.exports = (settings, userHandler) => {
     let app = express();
 
     const PORT = settings.http.port;
@@ -10,9 +10,7 @@ exports = module.exports = (settings) => {
     app.use(express.json());
 
     // testing
-    app.get('/getOK', (req, res) => {
-        res.send('OK');
-    });
+    app.get('/getuser', userHandler.getUser);
 
     return {
         start() {
@@ -23,4 +21,4 @@ exports = module.exports = (settings) => {
 
 exports['@singleton'] = true;
 exports['@async'] = false;
-exports['@require'] = ['lib/config/settings'];
+exports['@require'] = ['lib/config/settings', 'handler/users/userHandler'];
