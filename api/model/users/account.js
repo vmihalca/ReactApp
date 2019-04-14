@@ -9,6 +9,17 @@ exports = module.exports = (db) => {
                     return resolve(result);
                 });
             })
+        },
+        findUserByName(userName) {
+            const stmt = `SELECT username FROM account WHERE username='${userName}'`;
+            return new Promise((resolve, reject) => {
+                db.query(stmt, (err,result) => {
+                    if(err) {
+                        return reject(err);
+                    }
+                    return resolve( JSON.parse(JSON.stringify(result)).rows  );
+                })
+            })
         }
     }
 }
