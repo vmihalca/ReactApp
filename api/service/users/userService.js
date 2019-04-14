@@ -11,7 +11,7 @@ exports = module.exports = (responses, userModel, userValidation, auth) => {
 
                     if(foundUser.length > 0) {
                         
-                        let token = await auth.createToken(user);
+                        let token = await auth.createToken(foundUser[0]);
 
                         let newUser = {
                             user: foundUser[0].username,
