@@ -7,6 +7,13 @@ exports = module.exports = () => {
                 userName: Joi.string().required(),
                 password: Joi.string().required() 
             }
+        },
+        newUser() {
+            return {
+                userName: Joi.string().required(),
+                email: Joi.string().required(),
+                password: Joi.string().required()
+            }
         }
     }
 }

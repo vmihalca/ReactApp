@@ -18,6 +18,17 @@ exports = module.exports = (userService) => {
             } catch (error) {
                 next(error)
             }
+        },
+        async register(req, res, next) {
+            let user = req.body;
+            let newUser;
+            try {
+                newUser = await userService.register(user);
+
+                res.send(newUser);
+            } catch (error) {
+                next(error);
+            }
         }
     }
 }

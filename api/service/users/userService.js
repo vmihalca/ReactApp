@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const moment = require('moment');
 
 exports = module.exports = (responses, userModel, userValidation, auth) => {
     return {
@@ -22,6 +23,31 @@ exports = module.exports = (responses, userModel, userValidation, auth) => {
                     return responses.onFailure('User not found');
                 }
                 return responses.onFailure('Format invalid');
+        },
+        async register(user) {
+            const validate = Joi.validate(user, userValidation.newUser());
+            if(validate.error === null) {
+                const buildUser = {
+                    userName: user.userName,
+                    userEmail: user.email,
+                    created_on: moment().format('YYYY-MM-DD')
+                }
+                await userModel.createNewUser(buildUser);
+                let newUser = await userModel.findUserByName(buildUser.userName);
+
+                if(newUser.length > 0) {
+                    let token = await auth.createToken(user);
+
+                    let createdUser = {
+                        user: newUser[0].username,
+                        token: token
+                    }
+
+                    return responses.onSuccess(createdUser);
+                }
+                return responses.onFailure('Something went wrong')
+            }
+            return responses.onFailure('Invalid object');
         },
         async getUser() {
             let user;
