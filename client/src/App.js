@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
-import HomeContainer from './containers/homepage/HomeContainer';
-import './App.css';
+import React, { Component } from "react";
+import HomeContainer from "./containers/homepage/HomeContainer";
+import {Provider} from "react-redux";
+import store from "./store/configureStore";
+import "./App.css";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <HomeContainer />
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          <HomeContainer />
+        </div>
+      </Provider>
     );
   }
 }
