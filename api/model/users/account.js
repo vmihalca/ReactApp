@@ -20,6 +20,18 @@ exports = module.exports = (db) => {
                     return resolve( JSON.parse(JSON.stringify(result)).rows  );
                 })
             })
+        },
+        createNewUser(user) {
+            const stmt = `INSERT INTO account (username, useremail, created_on) VALUES ('${user.userName}', '${user.userEmail}', '${user.created_on}');`;
+
+            return new Promise((resolve, reject) => {
+                db.query(stmt, (err,result) => {
+                    if(err) {
+                        return reject(err);
+                    }
+                    return resolve( JSON.parse(JSON.stringify(result)).rows  );
+                })
+            })
         }
     }
 }

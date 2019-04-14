@@ -12,6 +12,7 @@ exports = module.exports = (settings, userHandler) => {
     app.use(express.json());
 
     app.post('/login', userHandler.login);
+    app.post('/register', userHandler.register);
     app.get('/getuser', userHandler.getUser);
 
     return {

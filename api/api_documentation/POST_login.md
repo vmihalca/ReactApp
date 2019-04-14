@@ -8,10 +8,19 @@
 
 - Object expected;
 
-        {
-            userName: string,
-            password: string
-        }
+
+Headers: 
+
+    {
+        Content-Type: application/json
+    }
+
+Body:
+
+    {
+        userName: string,
+        password: string
+    }
 
 ## On Success
 
