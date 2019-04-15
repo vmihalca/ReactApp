@@ -1,0 +1,44 @@
+header {
+  height: 500px;
+    background-position: center center;
+    background-size: cover;
+    background-image: url(../imgs/hannah-unsplash.jpg);
+  #header {
+    height: 60px;
+    padding: 10px 20px;
+    background-color: $nav-bkg-color;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 16px;
+    display: flex;
+    border-bottom: 1px solid #ffffff57;
+    .nav-logo {
+      display: flex;
+      justify-content: flex-start;
+      flex: 2;
+      .logo-img {
+        height: 95px;
+        position: relative;
+        top: -8px;
+      }
+    }
+    a {
+      display: flex;
+      padding: 0 20px;
+      border-left: 1px solid;
+      .login-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        flex: 1;
+        align-items: center;
+        span {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  .moto {
+    color: white;
+    margin-top: 220px;
+  }
+}
