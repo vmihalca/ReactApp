@@ -1,16 +1,21 @@
 const express = require('express');
+const logger = require('morgan');
 
-exports = module.exports = (settings, userHandler) => {
+exports = module.exports = (settings, userHandler, mid, auth) => {
     let app = express();
 
     const PORT = settings.http.port;
     const HOST = settings.http.host;
 
+    app.use(logger('dev'));
     app.use(express.urlencoded({extended: true}));
     app.use(express.json());
 
-    // testing
-    app.get('/getuser', userHandler.getUser);
+    app.post('/login', userHandler.login);
+    app.post('/register', userHandler.register);
+    app.get('/getuser', auth.validateToken, userHandler.getUser);
+
+    // app.use(mid.errorHandler);
 
     return {
         start() {
@@ -21,4 +26,9 @@ exports = module.exports = (settings, userHandler) => {
 
 exports['@singleton'] = true;
 exports['@async'] = false;
-exports['@require'] = ['lib/config/settings', 'handler/users/userHandler'];
+exports['@require'] = [
+    'lib/config/settings', 
+    'handler/users/userHandler',
+    'middleware/errorHandler',
+    'lib/authorization'
+];
