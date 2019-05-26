@@ -1,6 +1,6 @@
 import * as React from 'react';
-import AccountBox from '@material-ui/icons/AccountBox';
-import logo from './../imgs/logo6.png';
+import logo from './../imgs/logo.png';
+import Login from "./Login";
 
 const Header = () => {
     return (
@@ -9,12 +9,9 @@ const Header = () => {
                 <div className="nav-logo">
                     <img className="logo-img" src={logo} alt="Logo" />
                 </div>
-                <a className="no-underline" href="">
-                    <div className="login-wrapper">
-                        <span>LOGIN</span>
-                        <AccountBox />
-                    </div>
-                </a>
+                <div className="login-wrapper">
+                    <Login />
+                </div>
             </div>
             <div className="moto">
                 <h1 className="moto-title">Get Your Shit Done</h1>
