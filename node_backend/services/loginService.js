@@ -6,8 +6,11 @@ exports = module.exports = (auth, responses) => {
         async login(body) {
             if (body) {
                 let token = await auth.register(body.email);
+
                 if(token) {
                     return responses.onSuccess(token);
+                } else {
+                    return responses.onFailure('Invalid token');
                 }
             }
         }

@@ -17,7 +17,7 @@ exports = module.exports = () => {
             let email = req.headers.email;
             let token = req.headers.authorization.slice(7);
             let result = jwt.verify(token, email); 
-            console.log(result.exp)
+
             if(now > result.exp){
                 next();
             } else {
