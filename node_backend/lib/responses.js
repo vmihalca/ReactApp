@@ -8,7 +8,7 @@ exports = module.exports = () => {
         },
         onFailure(msg) {
             return {
-                message: msg,
+                message: "Something went wrong" || msg,
                 success: false
             }
         }
