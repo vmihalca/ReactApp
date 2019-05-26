@@ -1,11 +1,13 @@
 # Resourses
 
-    DELETE http://localhost:3001/delete/:id
+    DELETE http://localhost:3001/admin/delete/:id
 
 - headers:
         
         {
-            Content-Type: application/json
+            Content-Type: application/json,
+            "Authorization": "Bearer token",
+            "email": string
         }
 
 

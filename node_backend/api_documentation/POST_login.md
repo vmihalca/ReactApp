@@ -1,19 +1,11 @@
 # Resourses
 
-    PUT http://localhost:3001/admin/update/:id
+    POST http://localhost:3001/login
 
 - headers:
         
         {
             Content-Type: application/json,
-            "Authorization": "Bearer token",
-            "email": string
-        }
-
-- params
-
-        {
-            id: string
         }
 
 - body:
@@ -21,7 +13,7 @@
         Object exemple:
 
         {
-            name: "John"
+            email: string
         }
 
 ### On Success
@@ -30,7 +22,7 @@
 
         {
             success: true,
-            data: object | array
+            data: token
         }
 
 ### on Failure
@@ -39,3 +31,4 @@
             success: false,
             message: string
         }
+        
