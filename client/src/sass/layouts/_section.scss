@@ -1,4 +1,37 @@
 .section-one {
-    height: 500px;
-    background-color: $prime-color;
+    background-color: white;
+    padding-bottom: 50px;
+    .cards-container {
+     padding-top: 50px;
+     max-width: 1600px;
+     .MuiGrid-item-11{
+        display: flex;
+        justify-content: center;
+        .MuiPaper-elevation2-111 {
+            height: 400px;
+            width: 300px;
+            .card-img {
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                img {
+                    width: 150px;
+                }
+            }
+            h2 {
+                text-align: center;
+            }
+            div {
+                padding: 20px;
+            }
+            
+        } 
+        div:first-child {
+            img{
+                
+            }
+        }
+     }
+       
+    }
 }

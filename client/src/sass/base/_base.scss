@@ -1,3 +1,13 @@
+body {
+    background: #005AA7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFDE4, #6E9BC5);
+    background: linear-gradient(to right, #FFFDE4, #6E9BC5);
+}
+
+* {
+	box-sizing: border-box;
+}
+
 a {
     color: white;
 }
